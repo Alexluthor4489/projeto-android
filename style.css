@@ -1,0 +1,180 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Bebas+Neue&display=swap');
+
+@font-face {
+    font-family:'Android' ;
+    src: url('fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+}
+
+:root {/*O root nada mais é que uma raiz onde podemos definir variáveis de configuração que poderam ser usadas no nosso código. São basicamente configurações que estaram já definidas sem a nescessidade de recrialas todas as vezes que precisar-mos delas. Seu uso funciona assim; -- :o nome da variável; podemos ter a quantidade de variáveis que quiser-mos*/
+    --cor0:#a6ffde;
+    --cor1:#51dc66;
+    --cor2:#04FE9E;
+    --cor3:#08C577;
+    --cor4:#017454;
+    --cor5:#10402f;
+    /*Neste caso aqui criamos variáveis de cores e com isso nãsso precisamos procurar por uma cor no leque de cores, basta inserir no background-color:var (O nome da variável da cor desejada); */
+
+    --fonte-padrao:Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: "Bebas Neue", sans-serif;
+    --font-android: 'Android', 'Cursive';
+
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.externo::after{
+    content: '\00A0\1F517';
+}
+body {
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);
+}
+main p {
+    margin: 15px 0px;
+    text-align: justify;
+    text-indent: 30px;
+    font-size: 1em;
+    line-height: 2em;/*Se refere a altura da linha,ou seja, o espaçamento entre linhas. Aqui estamos definindo que o espaçamento irá ter 2em, ou seja, 2x o tamanho original.*/
+}
+
+header {
+    background-image:linear-gradient(to bottom, var(--cor3), var(--cor4), var(--cor5)) ;
+    min-height: 150px;/*Define que o Header vaio ter no mínimo 150px independente do tamanho da tela*/
+    text-align: center;
+    padding-top: 40px;
+}
+header > h1 {
+    color: #fff;
+    font-family: var(--fonte-destaque);
+    font-weight: normal;
+    margin-bottom: 20px;
+    font-size: 3em;/*Aqui estamos definindo através da unidade de medida "em" que o nosso h1 vai ter agora 3em ou seja 3x o tamanho original dele, ou seja, se ele tinha 16px, agora ele terá 48px*/
+    text-shadow: 2px 2px 2px #000000ba;   
+    }
+header > p {
+    color: #fff;
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em;
+    max-width: 600px;/*Quando definimos uma largura para o nosso parágrafo do header, ele deixa de ficar centralizado, pois o programa entende que ele não é mais um texto e sim um bloco, então para resolver isso, já que agora ele é um bloco, usamos o margin:auto; para centralizá-lo.*/
+    margin: auto;
+    padding-bottom: 20px;
+    padding-left: 10px;/*Estamos usando o pading nas laterais para evitar que quando a tela for reduzida, nosso parágrafo encoste nas bordas laterais da tela e sim tenha um pequeno espaçamento.*/
+    padding-right: 10px;/*Estamos usando o pading nas laterais para evitar que quando a tela for reduzida, nosso parágrafo encoste nas bordas laterais da tela e sim tenha um pequeno espaçamento.*/
+    text-shadow: 2px 2px 2px #000000ba;
+
+}
+nav {
+    background-color: var(--cor5);
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.397);
+    padding: 10px;
+    }
+nav > a {
+    color: var(--cor0);
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition-duration: 0.5s;
+    text-decoration: none;
+}
+nav > a:hover {
+    background-color: var(--cor2);
+    color: var(--cor5);
+}
+main {
+    min-width: 300px;
+    max-width: 1000px;
+    margin: auto;/*Centaliza o conteúdo idependente do tamanho da tela*/
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.279);
+    padding: 20px;
+    margin-bottom: 30px;
+    border-bottom-left-radius:10px ;
+    border-bottom-right-radius:10px ;
+}
+main h1 {
+    font-family: var(--font-android);
+    font-weight: normal;
+    color: var(--cor5);
+    font-size: 1.8em;
+    
+}
+main h2 {
+    font-family: var(--font-android);
+    color: var(--cor4);
+    font-size: 1.3em;
+    font-weight: normal;
+    background-image: linear-gradient(to right,var(--cor2), transparent);
+    text-indent: 8px;/*É responsável por gerar um espaçamento no início de um texto sejha ele parágrafo como já usamos, ou seja em títulos como nosso h2.*/
+}
+main strong {
+    color: var(--cor4);
+    background-color: var(--cor0);
+    padding: 2px 6px;
+}
+main a {
+    color: rgb(40, 40, 246);
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover {
+    color: rgb(5, 5, 197);
+    
+}
+main img {
+    width: 100%;
+}
+main img.pequena {/*Quando for centralizar uma imagem, não basta usar o margin:auto; pois uma imagem por padrão não é um bloco, então usamos o display:block; e ai sim usamos o margin:auto
+    ; */
+    max-width: 350px;
+    display: block;
+    margin: auto;
+}
+div.video {
+    background-color: var(--cor5);
+    margin: 0px -20px 30px -20px;
+    padding: 15px;
+    padding-bottom: 56.25%;
+    position: relative;/* Permite o posicionamento absoluto do <iframe> dentro do contêiner.*/
+}
+div.video > iframe {/*O iframe vem com algumas configurações que dificutam sua responsividade, então é necessário fazer-mos alguns ajustes técnicos para torná-lo responsivo*/
+    position: absolute;/*Posiciona o <iframe> de forma absoluta em relação ao contêiner .video, garantindo que ele ocupe o espaço dentro do contêiner conforme o especificado.*/
+    top: 5%;/*Define um deslocamento de 5% das bordas superior e esquerda do contêiner, criando uma pequena margem interna.*/
+    left: 5%;/*Define um deslocamento de 5% das bordas superior e esquerda do contêiner, criando uma pequena margem interna.*/
+    width: 90%;
+    height: 90%;
+}
+aside {
+    background-color: var(--cor2);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.452);
+}
+aside ul {
+    list-style-type: '\2714\00A0\00A0';/*Aqui acessamos o site de emogis e buscamos por check mark, feito isso copiamos seu código numérico sem o sinal se +, e entre aspas simples e após uma barra invertida, inserimos nosso código numérico. O código 00A0, foi usado para criar espaço, cada 00A0 corresponde a 1 espaço neste caso uamos 2. Para os espaços funcionarem corretamente, devemos separá-los com a mbarra invertida "\"*/
+    list-style-position: inside;/*Esta técnica serve para que as bolinhas da lista ul fiquem dentro ou seja inside do no aside. Normalmente estes marcadores ficam outside ou seja do lado de fora, mas neste caso precisamos inserilos dentro do conteiner aside.*/
+    columns: 2;/*Serve para dividir uma lista em colunas.Neste caso definimos que seram 2 colunas.*/
+}
+aside > h3 {
+    background-color: var(--cor4);
+    color: #fff;
+    padding: 10px;
+    margin: -10px -10px 0px -10px;/*Aqui usamos uma margem com valores negativos para que nossa borda ultrapaçasse o limites do bloco*/
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+footer {
+    background-color: var(--cor5);
+    color: #fff;
+    text-align: center;
+    font-size: 0.8em;
+    padding:10px;
+}
+footer a {
+    color: deepskyblue;
+    text-decoration: none;
+}
